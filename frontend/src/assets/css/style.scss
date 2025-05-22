@@ -87,6 +87,7 @@ ul {
     }
 }
 
+/* header start */
 header {
     .navbar-expand-lg {
         .navbar-nav {
@@ -100,6 +101,9 @@ header {
     }
 }
 
+/* header end */
+
+/* section-1 start */
 .section-1 {
     .swiper {
         .swiper-wrapper {
@@ -117,6 +121,9 @@ header {
     }
 }
 
+/* section-1 end */
+
+/* Latest Products & Featured Products start */
 .product {
     .card-img {
         overflow: hidden;
@@ -143,6 +150,7 @@ header {
 
         .price {
             font-size: 1.2em;
+            padding-bottom: 20px;
 
             span {
                 color: rgba($primary-black, 0.5);
@@ -151,22 +159,46 @@ header {
     }
 }
 
+/* Latest Products & Featured Products end */
+
+/* footer start */
 footer {
     background-color: $tertiary-color;
-    h2{
+
+    h2 {
         font-size: 1.5em;
     }
+
     ul {
         li {
             margin-bottom: 10px;
+
             a {
                 font-size: 1.2em;
                 color: $primary-white;
             }
         }
     }
-    .sportlight{
+
+    .sportlight {
         border-top: 1px solid rgba($primary-white, 0.10);
         border-bottom: 1px solid rgba($primary-white, 0.10);
     }
 }
+
+/* footer end */
+
+/* responsive css start */
+@media (min-width: 200px) and (max-width:768px) {
+    .section-1 {
+        .swiper {
+            .swiper-wrapper {
+                .swiper-slide {
+                    height: 400px;
+                }
+            }
+        }
+    }
+}
+
+/* responsive css end */
