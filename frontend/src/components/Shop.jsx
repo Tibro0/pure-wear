@@ -1,10 +1,13 @@
 import React from 'react'
+import Layout from './common/Layout'
 
 const Shop = () => {
   return (
-    <div>
-      Shop Page
-    </div>
+    <>
+      <Layout>
+        
+      </Layout>
+    </>
   )
 }
 
