@@ -6,6 +6,7 @@ import Logo from '../assets/images/logo.png'
 import SliderOneImg from '../assets/images/banner-1.jpg'
 import SliderTwoImg from '../assets/images/banner-2.jpg'
 import LatestProducts from './common/LatestProducts';
+import FeaturedProducts from './common/FeaturedProducts';
 
 
 const Home = () => {
@@ -65,6 +66,7 @@ const Home = () => {
             </section>
 
             <LatestProducts/>
+            <FeaturedProducts/>
         </>
     )
 }
