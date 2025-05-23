@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductImg from '../../assets/images/eight.jpg'
+import { Link } from 'react-router-dom'
 
 const LatestProducts = () => {
     return (
@@ -10,10 +11,12 @@ const LatestProducts = () => {
                     <div className='col-md-3 col-6'>
                         <div className='product card border-0'>
                             <div className='card-img'>
-                                <img src={ProductImg} alt="" className='w-100' />
+                                <Link to="/product">
+                                    <img src={ProductImg} alt="" className='w-100' />
+                                </Link>
                             </div>
                             <div className='card-body pt-3'>
-                                <a href="">Red Check Shirt For Men</a>
+                                <Link to="/product">Red Check Shirt For Men</Link>
                                 <div className='price'>
                                     $50 <span className='text-decoration-line-through'>$80</span>
                                 </div>
@@ -24,10 +27,12 @@ const LatestProducts = () => {
                     <div className='col-md-3 col-6'>
                         <div className='product card border-0'>
                             <div className='card-img'>
-                                <img src={ProductImg} alt="" className='w-100' />
+                                <Link to="/product">
+                                    <img src={ProductImg} alt="" className='w-100' />
+                                </Link>
                             </div>
                             <div className='card-body pt-3'>
-                                <a href="">Red Check Shirt For Men</a>
+                                <Link to="/product">Red Check Shirt For Men</Link>
                                 <div className='price'>
                                     $50 <span className='text-decoration-line-through'>$80</span>
                                 </div>
@@ -38,10 +43,12 @@ const LatestProducts = () => {
                     <div className='col-md-3 col-6'>
                         <div className='product card border-0'>
                             <div className='card-img'>
-                                <img src={ProductImg} alt="" className='w-100' />
+                                <Link to="/product">
+                                    <img src={ProductImg} alt="" className='w-100' />
+                                </Link>
                             </div>
                             <div className='card-body pt-3'>
-                                <a href="">Red Check Shirt For Men</a>
+                                <Link to="/product">Red Check Shirt For Men</Link>
                                 <div className='price'>
                                     $50 <span className='text-decoration-line-through'>$80</span>
                                 </div>
@@ -52,10 +59,12 @@ const LatestProducts = () => {
                     <div className='col-md-3 col-6'>
                         <div className='product card border-0'>
                             <div className='card-img'>
-                                <img src={ProductImg} alt="" className='w-100' />
+                                <Link to="/product">
+                                    <img src={ProductImg} alt="" className='w-100' />
+                                </Link>
                             </div>
                             <div className='card-body pt-3'>
-                                <a href="">Red Check Shirt For Men</a>
+                                <Link to="/product">Red Check Shirt For Men</Link>
                                 <div className='price'>
                                     $50 <span className='text-decoration-line-through'>$80</span>
                                 </div>
