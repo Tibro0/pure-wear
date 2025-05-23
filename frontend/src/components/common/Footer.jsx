@@ -1,5 +1,6 @@
 import React from 'react'
 import LogoBlack from '../../assets/images/logo-white.png'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
             <div className='container'>
                 <div className='row mb-5'>
                     <div className='col-md-3 pb-sm-4'>
-                        <img src={LogoBlack} alt="" width={150} />
+                        <Link to="/"><img src={LogoBlack} alt="" width={150} /></Link>
                         <div className='pt-3 pe-5'>lorem, ipsum dolor sit amet consectetur adipisicing elit</div>
                     </div>
                     <div className='col-md-3 pb-sm-4'>
