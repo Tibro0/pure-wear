@@ -34,7 +34,7 @@ a {
     text-decoration: none;
     color: $primary-black;
 
-    &::hover {
+    &:hover {
         color: $primary-color;
     }
 }
@@ -201,10 +201,6 @@ footer {
             a {
                 font-size: 1.2em;
                 color: $primary-white;
-                &:hover{
-                    color: $primary-color;
-                    transition: 0.3s ease-in-out;
-                }
             }
         }
     }
