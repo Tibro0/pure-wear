@@ -18,6 +18,10 @@ import { default as ShowBrands } from './components/admin/brand/Show'
 import { default as CreateBrand } from './components/admin/brand/Create'
 import { default as EditBrand } from './components/admin/brand/Edit'
 
+import { default as ShowSizes } from './components/admin/size/Show'
+import { default as CreateSize } from './components/admin/size/Create'
+import { default as EditSize } from './components/admin/size/Edit'
+
 function App() {
 
   return (
@@ -72,6 +76,24 @@ function App() {
             </AdminRequireAuth>
           } />
           {/* Brands Route End */}
+
+          {/* Sizes Route Start */}
+          <Route path='/admin/sizes' element={
+            <AdminRequireAuth>
+              <ShowSizes />
+            </AdminRequireAuth>
+          } />
+          <Route path='/admin/sizes/create' element={
+            <AdminRequireAuth>
+              <CreateSize />
+            </AdminRequireAuth>
+          } />
+          <Route path='/admin/sizes/edit/:id' element={
+            <AdminRequireAuth>
+              <EditSize />
+            </AdminRequireAuth>
+          } />
+          {/* Sizes Route End */}
 
         </Routes>
       </BrowserRouter>

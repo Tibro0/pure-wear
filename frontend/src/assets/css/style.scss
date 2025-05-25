@@ -113,6 +113,10 @@ header {
                 font-size: 1.2em;
                 font-weight: 500;
                 color: $primary-black;
+                &:hover{
+                    color: $primary-color;
+                    transition: 0.3s ease-in-out;
+                }
             }
         }
     }
@@ -197,6 +201,10 @@ footer {
             a {
                 font-size: 1.2em;
                 color: $primary-white;
+                &:hover{
+                    color: $primary-color;
+                    transition: 0.3s ease-in-out;
+                }
             }
         }
     }
