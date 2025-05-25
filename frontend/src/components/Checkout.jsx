@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from './common/Layout'
 import { Link } from 'react-router-dom'
 import ProductImg from '../assets/images/mens/seven.jpg'
 
 const Checkout = () => {
+
+    useEffect(() => {
+        document.title = "Pure Wear | Checkout";
+    }, []);
+
     const [paymentMethod, setPaymentMethod] = useState('cod');
 
     const handlePaymentMethod = (e) => {

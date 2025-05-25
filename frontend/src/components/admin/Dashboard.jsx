@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../common/Layout'
 import Sidebar from '../common/Sidebar'
 import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
+
+    useEffect(() => {
+        document.title = "Admin | Dashboard";
+      }, []);
+
     return (
         <Layout>
             <div className='container'>

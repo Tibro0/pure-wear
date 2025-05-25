@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from './common/Layout'
 import ProductImg from '../assets/images/eight.jpg'
 import { Link } from 'react-router-dom'
 
 const Shop = () => {
+
+  useEffect(() => {
+          document.title = "Pure Wear | Shop";
+      }, []);
+
   return (
     <>
       <Layout>

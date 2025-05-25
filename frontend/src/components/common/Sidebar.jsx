@@ -8,9 +8,9 @@ const Sidebar = () => {
         <div className='card shadow mb-5 sidebar'>
             <div className='card-body p-4'>
                 <ul>
-                    <li><Link to="">Dashboard</Link></li>
+                    <li><Link to="/admin/dashboard">Dashboard</Link></li>
                     <li><Link to="/admin/categories">Categories</Link></li>
-                    <li><Link to="">Brands</Link></li>
+                    <li><Link to="/admin/brands">Brands</Link></li>
                     <li><Link to="">Products</Link></li>
                     <li><Link to="">Orders</Link></li>
                     <li><Link to="">Users</Link></li>

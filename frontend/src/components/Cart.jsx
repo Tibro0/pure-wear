@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from './common/Layout'
 import { Link } from 'react-router-dom'
 import ProductImg from '../assets/images/mens/six.jpg'
 
 const Cart = () => {
+
+    useEffect(() => {
+              document.title = "Pure Wear | Cart";
+          }, []);
+
     return (
         <Layout>
             <div className='container pb-5'>

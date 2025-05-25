@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from './common/Layout';
 import { Rating } from 'react-simple-star-rating'
 import { Link } from 'react-router-dom';
@@ -17,6 +17,11 @@ import ProductImgTwo from '../assets/images/mens/six.jpg'
 import ProductImgThree from '../assets/images/mens/seven.jpg'
 
 const Product = () => {
+
+    useEffect(() => {
+        document.title = "Pure Wear | Product";
+    }, []);
+
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [rating, setRating] = useState(4)
 

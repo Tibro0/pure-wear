@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../common/Layout'
 import Sidebar from '../../common/Sidebar'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,6 +7,10 @@ import { toast } from 'react-toastify'
 import { adminToken, apiUrl } from '../../common/http'
 
 const Create = () => {
+    useEffect(() => {
+        document.title = "Admin | Create Category";
+    }, []);
+
     const [disable, setDisable] = useState(false)
     const navigate = useNavigate();
 
@@ -35,7 +39,11 @@ const Create = () => {
                 if (result.status === 200) {
                     toast.success(result.message);
                     navigate('/admin/categories')
-                } else {
+                } else if (result.status === 400) {
+                    const apiError = result.errors?.name?.[0] || "An unexpected error occurred.";
+                    toast.error(apiError);
+                }
+                else {
                     console.log("Something Went Wrong!");
                 }
             })

@@ -1,4 +1,4 @@
-import React, { use, useContext } from 'react'
+import React, { use, useContext, useEffect } from 'react'
 import Layout from '../common/Layout';
 import { useForm } from 'react-hook-form';
 import { apiUrl } from '../common/http';
@@ -7,6 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import { AdminAuthContext } from '../context/AdminAuth';
 
 const Login = () => {
+
+    useEffect(() => {
+        document.title = "Admin | Login";
+      }, []);
+
     const {login} = useContext(AdminAuthContext);
 
     const {
