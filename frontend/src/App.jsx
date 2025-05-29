@@ -22,6 +22,10 @@ import { default as ShowSizes } from './components/admin/size/Show'
 import { default as CreateSize } from './components/admin/size/Create'
 import { default as EditSize } from './components/admin/size/Edit'
 
+import { default as ShowProducts } from './components/admin/product/Show'
+import { default as CreateProduct } from './components/admin/product/Create'
+import { default as EditProduct } from './components/admin/product/Edit'
+
 function App() {
 
   return (
@@ -94,6 +98,24 @@ function App() {
             </AdminRequireAuth>
           } />
           {/* Sizes Route End */}
+
+          {/* Products Route Start */}
+          <Route path='/admin/products' element={
+            <AdminRequireAuth>
+              <ShowProducts />
+            </AdminRequireAuth>
+          } />
+          <Route path='/admin/products/create' element={
+            <AdminRequireAuth>
+              <CreateProduct />
+            </AdminRequireAuth>
+          } />
+          <Route path='/admin/products/edit/:id' element={
+            <AdminRequireAuth>
+              <EditProduct />
+            </AdminRequireAuth>
+          } />
+          {/* Products Route End */}
 
         </Routes>
       </BrowserRouter>

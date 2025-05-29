@@ -4,6 +4,10 @@ import Sidebar from './common/Sidebar'
 import { Link } from 'react-router-dom'
 
 const Sample = () => {
+    useEffect(() => {
+        document.title = "Admin | All Categories";
+    }, []);
+
     return (
         <Layout>
             <div className='container'>

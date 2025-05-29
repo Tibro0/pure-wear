@@ -7,6 +7,10 @@ $primary-black: #061123;
 $secondary-color: #0284FF;
 $tertiary-color: #2F4858;
 
+.active {
+  color: $primary-color !important;
+}
+
 body {
     font-family: $primary-font;
     font-size: 1em;

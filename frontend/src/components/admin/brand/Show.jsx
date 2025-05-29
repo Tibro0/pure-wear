@@ -52,9 +52,10 @@ const Show = () => {
                 .then(res => res.json())
                 .then(result => {
                     if (result.status === 200) {
-                        const newBrands = brands.filter(brand => brand.id != id)
-                        setBrands(newBrands)
-                        toast.success(result.message)
+                        const formErrors = result.errors;
+                        Object.keys(fromData).forEach((field) => {
+                            setError(field, { message: formErrors[field][0] });
+                        })
                     } else {
                         console.log("Something Went Wrong!");
                     }

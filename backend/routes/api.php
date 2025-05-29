@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     /** Sizes All Api Routes */
     Route::resource('sizes', SizeController::class);
     /** Products All Api Routes */
+    Route::post('save-product-image', [ProductController::class, 'saveProductImage']);
     Route::resource('products', ProductController::class);
     /** Temp Image Api Routes */
     Route::post('temp-images', [TempImageController::class, 'store']);

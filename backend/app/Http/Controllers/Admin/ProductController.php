@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'DESC')->get();
+        $products = Product::orderBy('id', 'DESC')->with('product_images')->get();
         return response()->json([
             'status' => 200,
             'data' => $products
@@ -65,11 +66,12 @@ class ProductController extends Controller
         if (!empty($request->gallery)) {
             foreach ($request->gallery as $key => $tempImageId) {
                 $tempImage = TempImage::findOrFail($tempImageId);
+
                 // longer Thumbnail
                 $extArray = explode('.', $tempImage->name);
                 $ext = end($extArray);
 
-                $imageName = $product->id.'-'.time() . '.' . $ext;
+                $imageName = $product->id . '-' . time() . '.' . $ext;
                 $manager = new ImageManager(Driver::class);
                 $img = $manager->read(public_path('uploads/temp/' . $tempImage->name));
                 $img->scaleDown(1200);
@@ -80,6 +82,11 @@ class ProductController extends Controller
                 $img = $manager->read(public_path('uploads/temp/' . $tempImage->name));
                 $img->coverDown(400, 460);
                 $img->save(public_path('uploads/products/small/' . $imageName));
+
+                $productImage = new ProductImage();
+                $productImage->image = $imageName;
+                $productImage->product_id = $product->id;
+                $productImage->save();
 
                 if ($key === 0) {
                     $product->image = $imageName;
@@ -100,7 +107,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with('product_images')->findOrFail($id);
 
         if ($product === null) {
             return response()->json([
@@ -191,6 +198,48 @@ class ProductController extends Controller
         return response()->json([
             'status' => 200,
             'message' => 'Product Deleted Successfully!',
+        ], 200);
+    }
+
+    public function saveProductImage(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->toArray(),
+            ], 400);
+        }
+
+        $image = $request->file('image');
+        $imageName = $request->product_id . '-' . time() . '.' . $image->extension();
+
+        // longer Thumbnail
+        $manager = new ImageManager(Driver::class);
+        $img = $manager->read($image->getPathName());
+        $img->scaleDown(1200);
+        $img->save(public_path('uploads/products/large/' . $imageName));
+
+        // Small Thumbnail
+        $manager = new ImageManager(Driver::class);
+        $img = $manager->read($image->getPathName());
+        $img->coverDown(400, 460);
+        $img->save(public_path('uploads/products/small/' . $imageName));
+
+        // insert a record in product_images table
+        $productImage = new ProductImage();
+        $productImage->image = $imageName;
+        $productImage->product_id = $request->product_id;
+        $productImage->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Image Uploaded Successfully!',
+            'data' => $productImage,
         ], 200);
     }
 }

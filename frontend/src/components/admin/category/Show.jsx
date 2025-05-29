@@ -8,12 +8,12 @@ import Nostate from '../../common/Nostate';
 import { toast } from 'react-toastify';
 
 const Show = () => {
-    const [categories, setCategories] = useState([]);
-    const [loader, setLoader] = useState(false);
-
     useEffect(() => {
         document.title = "Admin | All Categories";
     }, []);
+
+    const [categories, setCategories] = useState([]);
+    const [loader, setLoader] = useState(false);
 
     const fetchCategories = async () => {
         setLoader(true)
